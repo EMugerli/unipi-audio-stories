@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_story_list">
+
+    <fragment
+        android:id="@+id/navigation_story_list"
+        android:name="com.unipi.mobdev.unipiaudiostories.ui.story_list.StoryListFragment"
+        android:label="StoryListFragment"
+        tools:layout="@layout/fragment_story_list">
+        <action
+            android:id="@+id/show_story_detail"
+            app:destination="@id/navigation_story_detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_story_detail"
+        android:name="com.unipi.mobdev.unipiaudiostories.ui.story_detail.StoryDetailFragment"
+        android:label="story_detail"
+        tools:layout="@layout/fragment_story_detail">
+        <argument
+            android:name="story_id"
+            android:defaultValue=""
+            app:argType="string" />
+    </fragment>
+    <activity
+        android:id="@+id/navigation_statistics"
+        android:name="com.unipi.mobdev.unipiaudiostories.ui.statistics.StatisticsActivity"
+        android:label="StatisticsActivity"
+        tools:layout="@layout/activity_statistics">
+
+    </activity>
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.unipi.mobdev.unipiaudiostories.ui.settings.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="">
+
+    </fragment>
+</navigation>

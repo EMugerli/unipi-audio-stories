@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Unipi Histoires Audio</string>
+    <string name="title_activity_story_detail_host">StoryDetailHostActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_story_list">Ιστορίες</string>
+    <string name="title_story_detail">Λεπτομέρειες Ιστορίας</string>
+
+    <!-- Language -->
+    <string name="language">Γλώσσα</string>
+    <string name="english">Αγγλικά</string>
+    <string name="spanish">Ισπανικά</string>
+    <string name="french">Γαλλικά</string>
+    <string name="greek">Ελληνικά</string>
+    <string name="choose_language">Επιλέξτε γλώσσα</string>
+
+    <!-- Story -->
+    <string name="story_title_placeholder">Τίτλος Ιστορίας</string>
+    <string name="story_author_placeholder">από Όνομα Συγγραφέα</string>
+    <string name="story_detail_content_description">Εξώφυλλο Βιβλίου</string>
+    <string name="story_year_placeholder">2020</string>
+
+    <!-- Navigation -->
+    <string name="navigation_statistics_title">Στατιστικά</string>
+    <string name="navigation_settings_title">Ρυθμίσεις</string>
+
+    <!-- Titles -->
+    <string name="statistics_title">Τα Στατιστικά μου</string>
+    <string name="story_list_title">Όλες οι Ιστορίες</string>
+
+    <string name="play_button">Αναπαραγωγή</string>
+    <string name="stop_button">Διακοπή</string>
+    <string name="story_total_views_placeholder">Total Views: 0</string>
+    <string name="adapter_total_views_placeholder">Total views: %1$s</string>
+    <string name="adapter_author_placeholder">by %1$s</string>
+</resources>
