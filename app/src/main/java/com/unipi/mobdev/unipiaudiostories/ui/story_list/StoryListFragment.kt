@@ -24,7 +24,6 @@ import com.unipi.mobdev.unipiaudiostories.classes.StoryAdapter
  * item details. On larger screens, the Navigation controller presents the list of items and
  * item details side-by-side using two vertical panes.
  */
-
 class StoryListFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
@@ -64,6 +63,11 @@ class StoryListFragment : Fragment() {
         fetchStoriesFromFirebase()
     }
 
+    /**
+     * Fetches stories from Firestore and updates the RecyclerView.
+     * This method is called when the Fragment is resumed.
+     * The progress bar is displayed while fetching stories.
+     */
     private fun fetchStoriesFromFirebase() {
         val db = Firebase.firestore
         db.collection("stories")

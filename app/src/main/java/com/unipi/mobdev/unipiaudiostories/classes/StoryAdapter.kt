@@ -10,6 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.unipi.mobdev.unipiaudiostories.R
 
+/**
+ * Adapter for the RecyclerView in the StoryListFragment.
+ * This adapter displays a list of stories.
+ * The list is displayed using a RecyclerView and StoryAdapter.
+ */
 class StoryAdapter(
     private val stories: List<Story>,
     private val onStoryClick: (Story) -> Unit

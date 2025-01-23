@@ -1,21 +1,20 @@
 package com.unipi.mobdev.unipiaudiostories.classes
 
-import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.OptIn
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.google.android.material.badge.BadgeDrawable
-import com.google.android.material.badge.BadgeUtils
-import com.google.android.material.badge.ExperimentalBadgeUtils
 import com.unipi.mobdev.unipiaudiostories.R
 
+/**
+ * Adapter for the RecyclerView in the StatisticsActivity.
+ * This adapter displays a list of stories sorted by total views count.
+ * The list is displayed using a RecyclerView and StatisticsAdapter.
+ */
 class StatisticsAdapter (
 private val stories: List<Story>,
 private val onStoryClick: (Story) -> Unit
@@ -32,6 +31,12 @@ private val onStoryClick: (Story) -> Unit
 
     override fun getItemCount() = stories.size
 
+    /**
+     * ViewHolder for the StatisticsAdapter.
+     * This class holds the views for each item in the RecyclerView.
+     * It also binds the data to the views.
+     * @param itemView The view for the item in the RecyclerView.
+     */
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val storyTitle: TextView = itemView.findViewById(R.id.story_title)
         val storyAuthor: TextView = itemView.findViewById(R.id.story_author)

@@ -26,6 +26,13 @@ import com.unipi.mobdev.unipiaudiostories.databinding.ActivityStatisticsBinding
 import com.unipi.mobdev.unipiaudiostories.databinding.FragmentStoryListBinding
 import com.unipi.mobdev.unipiaudiostories.ui.story_list.StoryListFragmentDirections
 
+/**
+ * Activity for displaying statistics about stories.
+ * This activity displays a list of stories sorted by total views count.
+ * The total views count is stored in SharedPreferences.
+ * The stories are fetched from Firestore.
+ * The list is displayed using a RecyclerView and StatisticsAdapter.
+ */
 class StatisticsActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
@@ -61,6 +68,11 @@ class StatisticsActivity : AppCompatActivity() {
         fetchStoriesFromFirebase()
     }
 
+    /**
+     * Fetch stories from Firestore.
+     * For each story, get the total views count from SharedPreferences.
+     * Sort stories by total views count.
+     */
     private fun fetchStoriesFromFirebase() {
         val db = Firebase.firestore
         db.collection("stories")
@@ -94,16 +106,25 @@ class StatisticsActivity : AppCompatActivity() {
             }
     }
 
+    /**
+     * Get the total views count for a story from SharedPreferences.
+     */
     fun getViewCount(storyId: String): Int {
         Log.d("StatisticsAdapter", "Getting view count for story: $storyId")
         val sharedPreferences = getSharedPreferences("StoryStats", Context.MODE_PRIVATE)
         return sharedPreferences.getInt(storyId, 0)
     }
 
+    /**
+     * Attach the base context with the saved language code.
+     */
     override fun attachBaseContext(newBase: Context?) {
         super.attachBaseContext(newBase?.let { LanguageHelper.setLocale(it, getSavedLanguageCode(it)) })
     }
 
+    /**
+     * Get the saved language code from SharedPreferences.
+     */
     private fun getSavedLanguageCode(context: Context): String {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
         return prefs.getString("language_preference", "en") ?: "en"

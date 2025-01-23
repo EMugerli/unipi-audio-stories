@@ -28,6 +28,12 @@ import com.unipi.mobdev.unipiaudiostories.classes.Story
 import com.unipi.mobdev.unipiaudiostories.databinding.FragmentStoryDetailBinding
 import java.util.Locale
 
+/**
+ * A fragment representing a single Story detail screen.
+ * This fragment is either contained in a [StoryListActivity]
+ * in two-pane mode (on tablets) or a [StoryDetailHostActivity]
+ * on handsets.
+ */
 class StoryDetailFragment : Fragment() {
 
     private var story: Story? = null
@@ -97,6 +103,9 @@ class StoryDetailFragment : Fragment() {
         }
     }
 
+    /**
+     * Update the content of the fragment with the story details.
+     */
     private fun updateContent(story: Story) {
         story.let {
             storyTitleTextView?.text = it.title
@@ -115,6 +124,11 @@ class StoryDetailFragment : Fragment() {
         }
     }
 
+    /**
+     * Load story details from Firestore.
+     * @param storyId The ID of the story to load.
+     * @param callback The callback function to return the story.
+     */
     private fun loadStoryDetails(storyId: String, callback: (Story?) -> Unit) {
         showLoading(true)
         try {
@@ -142,6 +156,11 @@ class StoryDetailFragment : Fragment() {
         }
     }
 
+    /**
+     * Setup the TextToSpeech engine.
+     * Initialize the TextToSpeech engine and set the language to US English.
+     * Keep track of the speaking state to highlight the words being spoken.
+     */
     private fun setupTextToSpeech() {
         tts = TextToSpeech(context) { status ->
             if (status == TextToSpeech.SUCCESS) {
@@ -206,7 +225,7 @@ class StoryDetailFragment : Fragment() {
     }
 
     /**
-     *
+     * Highlight the text being spoken by the TextToSpeech engine.
      */
     private fun highlightText(start: Int, end: Int) {
         val spannable = SpannableString(binding.storyText?.text)
@@ -252,6 +271,10 @@ class StoryDetailFragment : Fragment() {
 
     }
 
+    /**
+     * Increment the view count for a story.
+     * @param storyId The ID of the story to increment the view count for.
+     */
     private fun incrementStoryViewCount(storyId: String) {
         if (this.activity == null) return
         Log.d("StoryDetailFragment", "Incrementing view count for story: $storyId")
